@@ -7,6 +7,7 @@ public class PelotaController : MonoBehaviour
     private Rigidbody2D rb; 
     [SerializeField] float force;
     [SerializeField] float delay;
+    [SerializeField] GameManager gameManager;
 
     const float MIN_ANG = 25.0f; 
     const float MAX_ANG = 40.0f; 
@@ -50,8 +51,10 @@ public class PelotaController : MonoBehaviour
 
         Debug.Log("Gol en " +collider.tag + "!!");
         if(collider.tag.Equals("GoalLeft")){
+            gameManager.AddPointP1();
             StartCoroutine(throwBall(1));
         }else if(collider.tag.Equals("GoalRigth")){
+            gameManager.AddPointP2();
             StartCoroutine(throwBall(-1));
         }
 

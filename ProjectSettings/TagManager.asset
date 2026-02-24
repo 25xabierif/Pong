@@ -8,6 +8,10 @@ TagManager:
   - Pa2
   - Player1
   - Player2
+  - GoalLeft
+  - GoalRigth
+  - txtP1Score
+  - txtP2Score
   layers:
   - Default
   - TransparentFX
