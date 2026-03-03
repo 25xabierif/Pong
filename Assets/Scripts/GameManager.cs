@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using System.Security.AccessControl;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    int p1Score;
-    int p2Score;
+    public static int P1Score;
+    public static int P2Score;
 
     bool running = false;
 
@@ -13,8 +15,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject pelota;
 
-    void Update() {
-        Debug.Log("p1 = " + p1Score + "; p2 = " + p2Score);
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
+    void Update() 
+    {
+        Debug.Log("p1 = " + P1Score + "; p2 = " + P2Score);
 
         if(!running && Input.GetKeyDown(KeyCode.Space)){
             // Activamos la pelota 
@@ -23,17 +31,25 @@ public class GameManager : MonoBehaviour
             running = true; 
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
     }
 
     public void AddPointP1() 
     { 
-        p1Score++;
-        txtP1Score.text = p1Score.ToString();
+        P1Score++;
+        txtP1Score.text = P1Score.ToString();
     }
     public void AddPointP2()
     {
-        p2Score++;
-        txtP2Score.text = p2Score.ToString();
+        P2Score++;
+        txtP2Score.text = P2Score.ToString();
+    }
+
+    public static void ResetGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

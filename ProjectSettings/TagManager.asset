@@ -12,6 +12,11 @@ TagManager:
   - GoalRigth
   - txtP1Score
   - txtP2Score
+  - Pelota
+  - Instruccions
+  - Start
+  - WinCondition
+  - Victory
   layers:
   - Default
   - TransparentFX
